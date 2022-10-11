@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// import './App.css';
 
-function App() {
+const App = () => {
+  //to create a click botton
+  const onButtonClick = () => {
+    fetch('ENE JUSTIN CHIMBUZOR.pdf').then(response => {
+      response.blob().then(blob => {
+        // to like create a new object of the pdf file to
+        // like a link
+        const fileURL = window.URL.createObjectURL(blob);
+        // set property values
+        let alink = document.createElement('a');
+        alink.href = fileURL;
+        alink.download = 'ENE CHIMBUZOR JUSTIN.pdf';
+        alink.click();
+      })
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <center>
+        <h1>Welcome to my Resume</h1>
+        <h3>Click the botton below to download my Resume in PDF format</h3>
+        <button onClick={onButtonClick}>
+          Download Resume
+        </button>
+      </center>
+    </>
+  )
 
-export default App;
+}
+export default App
