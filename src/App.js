@@ -23,7 +23,7 @@ const App = () => {
         <h1>Welcome to my Resume</h1>
         <h3>Click the botton below to download my Resume in PDF format</h3>
         <button onClick={onButtonClick}>
-          Download Resume
+          Download Resume!!
         </button>
       </center>
     </>
